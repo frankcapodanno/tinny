@@ -80,7 +80,7 @@
 		<!-- Put everything in ${build.dir} into the {$projectName}-${DSTAMP}.jar 
 
 			file -->
-		<jar jarfile="${dist.dir}/${dist.name}-${DSTAMP}.jar" basedir="${build.dir}">
+		<jar jarfile="${dist.dir}/${dist.name}.jar" basedir="${build.dir}">
 
 			<zipgroupfileset dir="lib" includes="*.jar" excludes="" />
 			<manifest>
@@ -88,7 +88,7 @@
 				<attribute name="Main-Class" value="click.capodanno.tinny.Main" />
 				<attribute name="Class-Path" value="${mf.classpath}" />
 				<attribute name="Specification-Title" value="${projectName}" />
-				<attribute name="Specification-Version" value="${version}" />
+				<attribute name="Specification-Version" value="${version}-${DSTAMP}" />
 				<attribute name="Specification-Vendor" value="Example Organization" />
 			</manifest>
 		</jar>
