@@ -1,2 +1,8 @@
 # tinny
-Experimental Software for sound phase in tinnitus
+Experimental Software to study counterphase  wave sound in tinnitus
+
+## license
+GPL v. 3 (https://www.gnu.org/licenses/gpl-3.0.de.html)
+
+## libraries 
+Java Sound API and Math for the wave sound reproduction are the principal libraries. 
