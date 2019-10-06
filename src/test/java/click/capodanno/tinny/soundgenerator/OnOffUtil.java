@@ -8,17 +8,32 @@ import click.capodanno.tinny.CommandState;
 public class OnOffUtil implements Runnable {
 
 	protected static final Logger logger = LogManager.getLogger();
+	
+	private int pauseInMs;
+	
+	public OnOffUtil() {
+		pauseInMs = 1000;
+	}
 
 	@Override
 	public void run() {
 		try {
-			logger.debug("OnOff Utility Thread started...");
-			Thread.sleep(1000);
+			Thread.sleep(pauseInMs);
 			logger.debug("Command Pure Sound Off");
 			CommandState.getInstance().soundOn = false;
+			logger.debug("Searching phase Off");
+			CommandState.getInstance().searchingPhase = false;
 		} catch (InterruptedException e) {
 			logger.error(e.getStackTrace());
 			Thread.currentThread().interrupt();
 		}
+	}
+
+	public int getPauseInMs() {
+		return pauseInMs;
+	}
+
+	public void setPauseInMs(int pauseInMs) {
+		this.pauseInMs = pauseInMs;
 	}
 }
