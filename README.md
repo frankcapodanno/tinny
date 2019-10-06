@@ -1,5 +1,5 @@
 # tinny
-Experimental Software to study counterphase  wave sound in tinnitus
+Experimental Software to study counterphase wave sound effect in tinnitus
 
 ## license
 GPL v. 3 (https://www.gnu.org/licenses/gpl-3.0.de.html)
