@@ -14,11 +14,17 @@ public class SoundGeneratorTest extends TestCase {
 	
 	protected static final Logger logger = LogManager.getLogger();
 
+	@Override
 	protected void setUp() throws Exception {
 	    Configurator.setRootLevel(Level.DEBUG);
 	}
 	
-	public void test_SoundGeneration() throws LineUnavailableException {
+	/**
+	 * Generate a Sound test buffering for a not glitch sound
+	 * 
+	 * @throws LineUnavailableException if the audio card has not available lines.
+	 */
+	public void testSoundGeneration() throws LineUnavailableException {
 		SoundGenerator sg = new SoundGenerator();
 		logger.debug("pure sound on");
 		CommandState.getInstance().soundOn = true;
