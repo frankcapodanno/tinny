@@ -43,4 +43,8 @@ public class SoundGeneratorTest extends TestCase {
 		CommandState.getInstance().searchingPhase = true;
 		sg.generateSoundSearchingPhase(440);
 	}
+	
+	public void testCounterPhase() {
+		
+	}
 }
