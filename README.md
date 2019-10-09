@@ -1,8 +1,9 @@
 # tinny
-Experimental Software to study counterphase wave sound effect in tinnitus
+Experimental Software to study counterphase wave sound effect in tinnitus patients. 
+This software is not a medical software and must be used just as study.
 
 ## license
 GPL v. 3 (https://www.gnu.org/licenses/gpl-3.0.de.html)
 
 ## libraries 
-Java Sound API and Math for the wave sound reproduction are the principal libraries. 
+Java Sound API and Java Math classes are the principal libraries. 
