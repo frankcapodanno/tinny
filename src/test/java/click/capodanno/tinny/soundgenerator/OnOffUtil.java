@@ -11,8 +11,8 @@ public class OnOffUtil implements Runnable {
 	
 	private int pauseInMs;
 	
-	public OnOffUtil() {
-		pauseInMs = 1000;
+	public OnOffUtil(int p) {
+		this.pauseInMs = p;
 	}
 
 	@Override
@@ -27,13 +27,5 @@ public class OnOffUtil implements Runnable {
 			logger.error(e.getStackTrace());
 			Thread.currentThread().interrupt();
 		}
-	}
-
-	public int getPauseInMs() {
-		return pauseInMs;
-	}
-
-	public void setPauseInMs(int pauseInMs) {
-		this.pauseInMs = pauseInMs;
 	}
 }
