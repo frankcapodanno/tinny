@@ -21,7 +21,6 @@ public class SoundGenerator {
 
 	public static final float SAMPLE_RATE = 44100.0F;
 	public static final int SAMPLE_SIZE = 16; // in bit
-	public static final int CHANNELS = 1;
 	public static final boolean SIGNED = true;
 	public static final boolean BIG_ENDIAN = true;
 	public static final int BUFFER_SIZE = 512;
