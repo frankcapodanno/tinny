@@ -20,7 +20,7 @@ public class SoundGenerator {
 	protected static final Logger logger = LogManager.getLogger();
 
 	public static final float SAMPLE_RATE = 44100.0F;
-	public static final float SAMPLE_SIZE = 16; // in bit
+	public static final int SAMPLE_SIZE = 16; // in bit
 	public static final int CHANNELS = 1;
 	public static final boolean SIGNED = true;
 	public static final boolean BIG_ENDIAN = true;
@@ -35,11 +35,11 @@ public class SoundGenerator {
 	 * play
 	 * 
 	 * @param channel channel where play the sound
-	 * @param p       panning LEFT, CENTER or RIGHT
+	 * @param p       panning LEFT, CENTER or RIGHT if is supported
 	 * @throws LineUnavailableException when there is problems with the line
 	 */
 	public SoundGenerator(int channel, PanType p) throws LineUnavailableException {
-		af = new AudioFormat((float) SAMPLE_RATE, 8, channel, SIGNED, BIG_ENDIAN);
+		af = new AudioFormat((float) SAMPLE_RATE, SAMPLE_SIZE, channel, SIGNED, BIG_ENDIAN);
 		sdl = AudioSystem.getSourceDataLine(af);
 		logger.debug(getLineInfos());
 		Control[] controls = sdl.getControls();

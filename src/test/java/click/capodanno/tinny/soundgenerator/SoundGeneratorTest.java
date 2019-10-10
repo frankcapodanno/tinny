@@ -56,7 +56,7 @@ public class SoundGeneratorTest extends TestCase {
 		Thread.sleep(500);
 		float shiftPhase;
 		for (int i=0; i<20; i++) {
-			shiftPhase = (float) i * 10;
+			shiftPhase = (float) i;
 			logger.debug("shift phase: {}", shiftPhase);
 			CommandState.getInstance().searchingPhase = true;
 			CommandState.getInstance().soundOn = true;
