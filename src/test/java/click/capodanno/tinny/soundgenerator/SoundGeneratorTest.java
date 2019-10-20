@@ -9,7 +9,12 @@ import org.apache.logging.log4j.core.config.Configurator;
 
 import click.capodanno.tinny.CommandState;
 import junit.framework.TestCase;
-
+/**
+ * This tests are intendend to help to development and would be not used for automation proupouses.  
+ * 
+ * @author frankcapodanno
+ *
+ */
 public class SoundGeneratorTest extends TestCase {
 
 	protected static final Logger logger = LogManager.getLogger();

@@ -1,4 +1,4 @@
-<project name="tinny" default="main" basedir=".">
+<project name="tinny" default="main-no-tests" basedir=".">
 	<description>
 		Phase sound software for explore tinnitus problems
 	</description>
@@ -98,6 +98,8 @@
 		<junit printsummary="yes" haltonfailure="yes">
 			<!-- Make sure these two libraries are included -->
 			<classpath location="${build.dir}" />
+			<classpath location="lib/log4j-api-2.12.1.jar" />
+			<classpath location="lib/log4j-core-2.12.1.jar" />
 			<classpath location="lib/junit-3.8.2.jar" />
 			<formatter type="xml" />
 			<formatter type="plain" />
@@ -117,5 +119,6 @@
 	</target>
 
 	<!-- Default, run this -->
-	<target name="main" depends="clean, compile, test, dist" />
+	<target name="main-tests" depends="clean, compile, test, dist" />
+	<target name="main-no-tests" depends="clean, compile, dist" />
 </project>

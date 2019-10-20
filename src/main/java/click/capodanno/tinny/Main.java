@@ -15,6 +15,7 @@ public class Main {
 	 */
     private static void createAndShowGUI() {
         //Create and set up the window.
+        logger.info("gui started...");
         JFrame frame = new JFrame("Tinny ver. 1.0");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -38,6 +39,7 @@ public class Main {
 	 * @param args no args accepted
 	 */
 	public static void main(String[] args) {
+	    
 		
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
