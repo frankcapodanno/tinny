@@ -4,9 +4,10 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
-import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -17,16 +18,23 @@ import javax.swing.JPanel;
 import javax.swing.JSlider;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
-import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
 import javax.swing.border.EtchedBorder;
 
-public class GeneralUIConfigurator {
+public class GeneralUIConfigurator extends JFrame implements ActionListener {
+	//pure sound
+	JButton button1;
+	
+	//play the sound
+	JButton button2;
+	
+	//slider
+	JSlider sliderSwitchPhase;
+	
+	//buttonSave config
+	JButton buttonSave;
 
-	private GeneralUIConfigurator() {
-	}
-
-	public static void build(JFrame frame) {
+	public void build(JFrame frame) {
 		// Add the ubiquitous "Hello World" label.
 		JLabel label = new JLabel("<html><h1>Hello in Tinny!</h1><br />"
 				+ "Tinny is a simple application and help you to find a counterphase of a specific sound frequency</html>");
@@ -85,41 +93,46 @@ public class GeneralUIConfigurator {
 		subPanel3.setBorder(orangeBorder);
 
 		// subpanel
-		JLabel fLabel = new JLabel("<html><h2>Select the frequency</h2></html>");
+		JLabel fLabel = new JLabel("<html><h2>Select the frequency</h2><p>select a sound that is near your tinnitus</p></html>");
 
-		JSlider slider = new JSlider();
-		slider.setMaximum(20000);
-		slider.setMinimum(30);
-		slider.setBorder(simpleBorder);
+		JSlider sliderFreq = new JSlider();
+		sliderFreq.setMaximum(20000);
+		sliderFreq.setMinimum(30);
+		sliderFreq.setBorder(simpleBorder);
 
 		JTextField text = new JTextField();
 		text.setEnabled(true);
 		text.setEditable(false);
 		text.setText("20 Hz");
 		text.setFont(f3);
-
-		// subpanel2
-		JLabel fLabel2 = new JLabel("<html><h2>Search your counterphase</h2></html>");
-
-		JButton button1 = new JButton();
+		
+		button1 = new JButton();
 		button1.setText("Play the pure sound");
 
-		JButton button2 = new JButton();
-		button2.setText("Play the sound and change the phase (searching the counterphase)");
+		// subpanel2
+		JLabel fLabel2 = new JLabel("<html><h2>Search your counterphase</h2><p>now change the phase and try to find if there are disturbances with your tinnitus</p></html>");
+		
+		sliderSwitchPhase = new JSlider();
+		sliderSwitchPhase.setMaximum(100);
+		sliderSwitchPhase.setMinimum(0);
+		sliderSwitchPhase.setBorder(simpleBorder);
+		
+		JTextField textSwitchPhase = new JTextField();
+		textSwitchPhase.setEnabled(true);
+		textSwitchPhase.setEditable(false);
+		textSwitchPhase.setText("0");
+		textSwitchPhase.setFont(f3);
+
+		button2 = new JButton();
+		button2.setText("Play the sound");
 		button2.setBorder(simpleBorder);
-
-		JButton button3 = new JButton();
-		button3.setText("Stop the phase");
-
-		JButton button4 = new JButton();
-		button4.setText("Stop all");
 
 		// subpanel3
 		JLabel fLabel3 = new JLabel("<html><h2>Output</h2></html>");
 
 		JTextPane textOutput = new JTextPane();
 
-		JButton buttonSave = new JButton();
+		buttonSave = new JButton();
 		buttonSave.setText("Save the actual configuration");
 
 		// positioning
@@ -127,13 +140,13 @@ public class GeneralUIConfigurator {
 
 		subPanel.add(fLabel, BorderLayout.NORTH);
 		subPanel.add(text, BorderLayout.CENTER);
-		subPanel.add(slider, BorderLayout.SOUTH);
+		subPanel.add(button1, BorderLayout.EAST);
+		subPanel.add(sliderFreq, BorderLayout.SOUTH);
 
 		subPanel2.add(fLabel2, BorderLayout.NORTH);
-		subPanel2.add(button1, BorderLayout.WEST);
-		subPanel2.add(button2, BorderLayout.CENTER);
-		subPanel2.add(button3, BorderLayout.EAST);
-		subPanel2.add(button4, BorderLayout.SOUTH);
+		subPanel2.add(textSwitchPhase, BorderLayout.CENTER);
+		subPanel2.add(button2, BorderLayout.EAST);
+		subPanel2.add(sliderSwitchPhase, BorderLayout.SOUTH);
 
 		subPanel3.add(fLabel3, BorderLayout.NORTH);
 		subPanel3.add(textOutput, BorderLayout.CENTER);
@@ -144,8 +157,20 @@ public class GeneralUIConfigurator {
 		panel.add(subPanel3);
 
 		// add Listeners
+		button1.addActionListener(this);
+		button2.addActionListener(this);
+		
+		
 		// add to the frame
 		frame.setJMenuBar(menuBar);
 		frame.getContentPane().add(panel);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent ae) {
+		if(ae.getSource() == this.button1) {
+			
+		}
+		
 	}
 }

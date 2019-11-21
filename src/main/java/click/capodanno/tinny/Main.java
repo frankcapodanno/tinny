@@ -24,7 +24,8 @@ public class Main {
 //        JLabel label = new JLabel("Hello in in Tinny!");
 //        frame.getContentPane().add(label);
         
-        GeneralUIConfigurator.build(frame);
+        GeneralUIConfigurator ui = new GeneralUIConfigurator();
+        ui.build(frame);
 
         //Display the window.
         frame.pack();

@@ -1,13 +1,9 @@
 package click.capodanno.tinny.soundgenerator;
 
-import java.util.Arrays;
-
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Control;
 import javax.sound.sampled.FloatControl;
 import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.Mixer;
 import javax.sound.sampled.SourceDataLine;
 
 import org.apache.logging.log4j.LogManager;
@@ -26,8 +22,6 @@ public class SoundGenerator {
 	public static final int BUFFER_SIZE = 512;
 	private SourceDataLine sdl;
 	private AudioFormat af;
-	private Mixer mx;
-	private Mixer.Info[] mixerInfo;
 
 	/**
 	 * this constructor need define the type of Pan and the channel where the sound
@@ -40,9 +34,9 @@ public class SoundGenerator {
 	public SoundGenerator(int channel, PanType p) throws LineUnavailableException {
 		af = new AudioFormat((float) SAMPLE_RATE, SAMPLE_SIZE, channel, SIGNED, BIG_ENDIAN);
 		sdl = AudioSystem.getSourceDataLine(af);
-		logger.debug(getLineInfos());
-		Control[] controls = sdl.getControls();
-		logger.debug(Arrays.deepToString(controls));
+//		logger.debug(getLineInfos());
+//		Control[] controls = sdl.getControls();
+//		if (logger.getLevel() == Level.DEBUG) logger.debug(Arrays.deepToString(controls));
 		switch (p) {
 		case CENTER:
 			changePan(0, sdl);
